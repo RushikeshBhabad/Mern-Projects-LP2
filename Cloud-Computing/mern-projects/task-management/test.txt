@@ -1,0 +1,32 @@
+Create VPC
+
+Create subnet -> VPC ID -> my-vpc
+	name -> my-subnet
+	Ip -> 10.0.1.0/24
+
+Edit subnet settings -> Enable auto-assign public IPv4 address
+
+Create internet gateway 
+Attach to VPC -> my-vpc
+
+
+Create route table -> my-rt and vpc -> my-vpc
+
+Edit routes -> Add route ->	
+		0.0.0.0/0
+		Internet Gateway
+		igw-0e3e3c29f3d8983ce
+		
+Edit subnet associations -> Save associations
+
+
+
+Now in terminal 
+
+ssh -i nodevm.pem ubuntu@18.216.9.187
+
+From Another local terminal -> send key in EC2 node1
+scp -i nodevm.pem nodevm.pem ubuntu@18.216.9.187:/home/ubuntu/
+
+sudo nano text.txt
+scp -i nodevm.pem text.txt ubuntu@18.224.108.220:/home/ubuntu/
